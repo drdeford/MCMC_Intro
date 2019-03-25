@@ -68,7 +68,6 @@ score_fn = selector(['Scrabble','Alphabetical (a=1, etc.)'], label = "Score func
 			
 			for j in range(let_step):
 				state[choice(range(letters))] = choice(bag)
-						
 			vals.append(sum([scores[state[i]] for i in range(letters)]))
 			#print(state)
 			#print(vals[-1])
@@ -91,7 +90,7 @@ score_fn = selector(['Scrabble','Alphabetical (a=1, etc.)'], label = "Score func
 
     
 	plt.figure()
-	plt.plot(vals, 'o')
+	plt.plot(vals, 'o',markersize=2)
 	plt.title('Draw Values')
 	plt.xlabel('Roll #')
     
@@ -99,14 +98,14 @@ score_fn = selector(['Scrabble','Alphabetical (a=1, etc.)'], label = "Score func
     
 	plt.figure()
     
-	plt.plot(means,'o')
+	plt.plot(means,'o',markersize=3)
 	plt.axhline(y=expected,color='r')
 	plt.title('Average of Tile Points')
 	plt.show()
 
 	plt.figure()
     
-	plt.plot(error,'o')
+	plt.plot(error,'o',markersize=3)
 	plt.axhline(y=0,color='r')
 	plt.title('Error: Expected - Empirical')
 	plt.show()
