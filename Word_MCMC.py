@@ -92,7 +92,7 @@ disp = input_box(default = 10, label ='Number of states to display: '), auto_upd
 			new_state = choice(bag)
 			
 			q = min(1,(float(scores[new_state])/float(scores[old_state]))*(float(bag.count(old_state))/float(bag.count(new_state))))
-			print(old_state,new_state,q,scores[new_state],scores[old_state],bag.count(old_state),bag.count(new_state))
+			#print(old_state,new_state,q,scores[new_state],scores[old_state],bag.count(old_state),bag.count(new_state))
 			
 				
 				
