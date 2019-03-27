@@ -63,15 +63,15 @@ disp = input_box(default = 10, label ='Number of states to display: '), auto_upd
 	
 		
 	if score_fn == 'Alphabetical (a=1, etc.)':
-		scores = {alphabet[i]: i for i in range(27)}
+		scores = {alphabet[i]: i+1 for i in range(27)}
 		
 	vals = [ ]
 	sums = [0]
 	means = []
 	error = []
     
-	
-	
+		
+
 	
     
 	state = start_word
@@ -91,7 +91,9 @@ disp = input_box(default = 10, label ='Number of states to display: '), auto_upd
 		
 			new_state = choice(bag)
 			
-			q = min(1, (scores[new_state]/scores[old_state])*(bag.count(old_state)/bag.count(new_state)))
+			q = min(1,(float(scores[new_state])/float(scores[old_state]))*(float(bag.count(old_state))/float(bag.count(new_state))))
+			print(old_state,new_state,q,scores[new_state],scores[old_state],bag.count(old_state),bag.count(new_state))
+			
 				
 				
 			#print(state)
@@ -100,7 +102,7 @@ disp = input_box(default = 10, label ='Number of states to display: '), auto_upd
 		
 			new_state = choice(graph.neighbors(old_state))
 			
-			q = min(1, (scores[new_state]/scores[old_state])*((1/len(graph.neighbors(new_state))/(1/len(graph.neighbors(old_state))))))
+			q = min(1, (float(scores[new_state])/float(scores[old_state]))*((1/float(len(graph.neighbors(new_state)))/(1/float(len(graph.neighbors(old_state)))))))
 
 		
 		alpha = random()
@@ -146,5 +148,3 @@ disp = input_box(default = 10, label ='Number of states to display: '), auto_upd
 	pretty_print('Final estimate: ', means[-1].n())
 	pretty_print('Actual expected value: ', expected.n())
 	pretty_print('Error: ', error[-1].n())	
-		
-	
