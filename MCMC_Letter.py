@@ -156,24 +156,26 @@ disp = input_box(default = 10, label ='Number of states to display: '), auto_upd
 		emp_s = sum(emp_vec)
 		emp_n = [float(emp_vec[alpha_pos[x]])/emp_s for x in alphabet]
         
-		tvt.append(sum([abs(emp_n[x]-target_vec[x]) for x in range(letters)]))
-		tvp.append(sum([abs(emp_n[x]-proposal_vec[x]) for x in range(letters)]))
+		tvt.append(sum([abs(emp_n[x]-target_vec[x]) for x in range(len(alphabet))]))
+		tvp.append(sum([abs(emp_n[x]-proposal_vec[x]) for x in range(len(alphabet))]))
         
 		val = sum([scores[state[i]] for i in range(letters)])
         
 		#print(val)
-		evt.append(evts - val) #sum(scores[x]*emp_n[alpha_pos[x]] for x in alphabet))
-		evp.append(evps - val) #sum(scores[x]*emp_n[alpha_pos[x]] for x in alphabet))
+		#evt.append(evts - val) #sum(scores[x]*emp_n[alpha_pos[x]] for x in alphabet))
+		#evp.append(evps - val) #sum(scores[x]*emp_n[alpha_pos[x]] for x in alphabet))
 		#print(evt)
             
             
 		vals.append(val)
 
-		#sums.append(sums[-1]+vals[-1])
+		sums.append(sums[-1]+vals[-1])
 		#print(sums)
-		#means.append(sums[-1]/((z+1)))
+		means.append(sums[-1]/((z+1)))
 		#print(means)
 		#error.append(expected - means[-1])
+		evt.append(evts - means[-1]) #sum(scores[x]*emp_n[alpha_pos[x]] for x in alphabet))
+		evp.append(evps - means[-1]) #sum(scores[x]*emp_n[alpha_pos[x]] for x in alphabet))
         
 
 	#print(proposal_vec)
@@ -218,7 +220,9 @@ disp = input_box(default = 10, label ='Number of states to display: '), auto_upd
     
 	plt.plot(tvp,'o',markersize=3,color='blue',label='Proposal')
 	plt.plot(tvt,'o',markersize=3,color='green', label="Target")
-	#plt.axhline(y=expected,color='r')
+	plt.axhline(y=0,color='r')
+	plt.axhline(y=sum([abs(target_vec[x]-proposal_vec[x]) for x in range(len(alphabet))]),color='y')
+
 	plt.title('Total Variation Distance')
 	plt.legend()
 	plt.show()
@@ -227,20 +231,20 @@ disp = input_box(default = 10, label ='Number of states to display: '), auto_upd
 
 	plt.figure()
     
-	plt.plot(evp,'o',markersize=3,color='blue',label='Proposal')
+	#plt.plot(evp,'o',markersize=3,color='blue',label='Proposal')
 	plt.plot(evt,'o',markersize=3,color='green', label="Target")
-	#plt.axhline(y=expected,color='r')
+	plt.axhline(y=0,color='r')
 	plt.title('Expected Value Distance')
 	plt.legend()
 	plt.show()
 
-	plt.figure()
-	plt.plot(vals,'o',markersize=3,color='red',label='Proposal')
-	plt.axhline(y=evps,color='blue',label='Proposal')
-	plt.axhline(y=evts,color='green',label='Target')
-	plt.title('Expected Score Comparison')
-	plt.legend()
-	plt.show()    
+	#plt.figure()
+	#plt.plot(vals,'o',markersize=3,color='red',label='Proposal')
+	#plt.axhline(y=evps,color='blue',label='Proposal')
+	#plt.axhline(y=evts,color='green',label='Target')
+	#plt.title('Expected Score Comparison')
+	#plt.legend()
+	#plt.show()    
 
 	#plt.figure()
     
@@ -261,4 +265,3 @@ disp = input_box(default = 10, label ='Number of states to display: '), auto_upd
 	plt.xlabel('Step #')
     
 	plt.show()
-    
