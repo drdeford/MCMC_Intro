@@ -106,8 +106,8 @@ disp = input_box(default = 10, label ='Number of states to display: '), auto_upd
 	evts = sum(scores[x]*target_vec[alpha_pos[x]] for x in alphabet)
 	evps = sum(scores[x]*proposal_vec[alpha_pos[x]] for x in alphabet)
     
-	print(evts)
-	print(evps)
+	#print(evts)
+	#print(evps)
 	for l in range(letters):
 		emp_vec[alpha_pos[state[l]]]+=1
     
@@ -159,15 +159,15 @@ disp = input_box(default = 10, label ='Number of states to display: '), auto_upd
 		tvt.append(sum([abs(emp_n[x]-target_vec[x]) for x in range(letters)]))
 		tvp.append(sum([abs(emp_n[x]-proposal_vec[x]) for x in range(letters)]))
         
-        val = sum([scores[state[i]] for i in range(letters)])
+		val = sum([scores[state[i]] for i in range(letters)])
         
-        print(val)
-        evt.append(evts - val) #sum(scores[x]*emp_n[alpha_pos[x]] for x in alphabet))
-        evp.append(evps - val) #sum(scores[x]*emp_n[alpha_pos[x]] for x in alphabet))
-        print(evt)
+		#print(val)
+		evt.append(evts - val) #sum(scores[x]*emp_n[alpha_pos[x]] for x in alphabet))
+		evp.append(evps - val) #sum(scores[x]*emp_n[alpha_pos[x]] for x in alphabet))
+		#print(evt)
             
             
-        vals.append(val)
+		vals.append(val)
 
 		#sums.append(sums[-1]+vals[-1])
 		#print(sums)
@@ -223,7 +223,7 @@ disp = input_box(default = 10, label ='Number of states to display: '), auto_upd
 	plt.legend()
 	plt.show()
     
-	print(evp)
+	#print(evp)
 
 	plt.figure()
     
