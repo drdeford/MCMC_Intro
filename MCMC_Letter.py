@@ -282,7 +282,10 @@ disp = input_box(default = 10, label ='Number of states to display: '), burn = i
     
 	plt.show()
 	plt.figure()
-	plt.plot(accepts, 'o',markersize=2)
+	ax = plt.gca()
+	ax.set_yticks([0,1])
+	ax.set_yticklabels([':(',':)'])
+	plt.plot(accepts,'o',markersize=1)
 	plt.title('Accepted?')
 	plt.xlabel('Step #')
     
