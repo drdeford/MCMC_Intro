@@ -3,8 +3,8 @@ from matplotlib import pyplot as plt
 @interact
 def scrabble_expected(start_word = input_box(default=['a'],label = 'Initial letter: '), 
 letter_walk = selector(['Scrabble','Uniform','Keyboard','Cycle' ], label = 'Walk on Individual Letters: '), 
-score_fn = selector(['Scrabble Score','Alphabetical (a=1, etc.)', 'Scrabble Count', 'Uniform', '# Vowels'], label = "Score function on letters:"), num_steps = input_box(default=1000,label='Number of Steps: '),
-disp = input_box(default = 10, label ='Number of states to display: '), auto_update=False):
+score_fn = selector(['Scrabble Score','Alphabetical (a=1, etc.)', 'Scrabble Count', 'Uniform', '# Vowels'], label = "Score function on letters:"), num_steps = input_box(default=10000,label='Number of Steps: '),
+disp = input_box(default = 100, label ='Number of states to display: '), auto_update=False):
 
 	scrabble_bag = ['a','a','a','a','a','a','a','a','a','b','b','c','c','d','d','d','d','e','e','e','e','e','e','e','e','e','e','e','e','f','f','g','g','g','h','h','i','i','i','i','i','i','i','i','i','j','k','l','l','l','l','m','m','n','n','n','n','n','n','o','o','o','o','o','o','o','o','p','p','q','r','r','r','r','r','r','s','s','s','s','t','t','t','t','t','t','u','u','u','u','v','v','w','w','x','y','y','z',' ',' ']
 
