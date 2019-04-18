@@ -15,7 +15,7 @@ def dice_distribution(faces=input_box([1,2,3,4,5,6],label='Faces: '), num_rolls 
     eL.sort()
     plt.figure()
     
-    plt.bar(range(len(oL)), [float(original[x])/len(oL) for x in oL], align = 'center')
+    plt.bar(range(len(oL)), [float(original[x])/len(faces) for x in oL], align = 'center')
     plt.xticks(range(len(oL)), oL)
     plt.ylabel('Frequency')
     plt.title('Expected Dice Distribution')
@@ -29,8 +29,6 @@ def dice_distribution(faces=input_box([1,2,3,4,5,6],label='Faces: '), num_rolls 
     plt.title('Empirical Dice Distribution')
     plt.show()
 
-    
-    plt.show()
     
     pretty_print('Roll values: ', vals)
     
