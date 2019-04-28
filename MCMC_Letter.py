@@ -2,7 +2,7 @@ from matplotlib import pyplot as plt
 
 @interact
 def scrabble_expected(start_word = input_box(default=['a'],label = 'Initial letter: '), 
-letter_walk = selector(['Scrabble','Uniform','Keyboard','Cycle' ], label = 'Walk on Individual Letters: '), 
+letter_walk = selector(['Scrabble','Uniform','Keyboard','Cycle', 'Path' ], label = 'Walk on Individual Letters: '), 
 score_fn = selector(['Scrabble Score','Alphabetical (a=1, etc.)', 'Scrabble Count', 'Uniform', '# Vowels'], label = "Score function on letters:"), num_steps = input_box(default=1000,label='Number of Steps: '),
 disp = input_box(default = 10, label ='Number of states to display: '), burn = input_box(default=0, label='Initial steps to burn:'), auto_update=False):
 
@@ -16,6 +16,8 @@ disp = input_box(default = 10, label ='Number of states to display: '), burn = i
 	key1 ={'q':['w','a'],'w':['e','a','s'],'e':['r','s','d'],'r':['t','d','f'],'t':['y','f','g'],'y':['u','g','h'],'u':['i','h','j'],'i':['o','j','k'],'o':['p','k','l'],
 	'p':['l'],'a':['s','z'],'s':['d','z','x'],'d':['f','x','c'],'f':['g','c','v'],'g':['h','v','b'],'h':['j','b','n'],'j':['k','n','m'],'k':['l','m'],'z':['x'],'x':['c'],'c':['v',' '],'v':['b',' '],'b':['n',' '],'n':['m',' '],'m':[' ']}
 	cyclic = {alphabet[x]:[alphabet[(x+1)%27]] for x in range(27)}
+	pathic = {alphabet[x]:[alphabet[x+1]] for x in range(26)}
+	g2=Graph(pathic)
 	g=Graph(cyclic)
 	h=Graph(key1)
 	
@@ -32,6 +34,14 @@ disp = input_box(default = 10, label ='Number of states to display: '), burn = i
 	elif letter_walk == 'Cycle':
 		graph = g
 		bag = alphabet
+		bvg = 0
+
+	elif letter_walk == 'Path':
+		graph = g2
+		bag = alphabet
+		bag = bag + bag
+		bag.pop(0)
+		bag.pop(-1)
 		bvg = 0
 		
 	elif letter_walk == 'Keyboard':
@@ -134,12 +144,14 @@ disp = input_box(default = 10, label ='Number of states to display: '), burn = i
 		elif bvg == 0:
 		
 			new_state = choice(graph.neighbors(old_state))
+			#print('new:',new_state)
             
 			for l in range(1):
 				q_vec[alpha_pos[new_state]]+=1
 
 			
 			q = min(1, (float(scores[new_state])/float(scores[old_state]))*((1/float(len(graph.neighbors(new_state)))/(1/float(len(graph.neighbors(old_state)))))))
+			#print('q:',q)
 
 		
 		alpha = random()
