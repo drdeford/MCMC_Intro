@@ -63,7 +63,8 @@ disp = input_box(default = 10, label ='Number of states to display: '), auto_upd
 		scores['u'] = 100
 		scores['y'] = 50
 
-        
+	if score_fn == 'Alphabetical (a=1, etc.)':
+		scores = {alphabet[i]: i+1 for i in range(27)}        
         
 	vals = [ ]
 	sums = [0]
@@ -96,6 +97,7 @@ disp = input_box(default = 10, label ='Number of states to display: '), auto_upd
     
 	vals =[scores[start_word[0]]]
 	sums=[scores[start_word[0]]]
+	ses=[start_word[0]]
 	means=[scores[start_word[0]]]
 	target = sum([proposal_vec[x]*scores[alphabet[x]] for x in range(27)])
 
@@ -109,9 +111,10 @@ disp = input_box(default = 10, label ='Number of states to display: '), auto_upd
     
 	for l in range(letters):
 		emp_vec[alpha_pos[state[l]]]+=1
+	
+	state=[start_word[0]]
     
 	for z in range(num_steps):
-		state=[start_word[0]]
 			
 		k = choice(range(letters))
 		old_state = state[k]
@@ -128,9 +131,11 @@ disp = input_box(default = 10, label ='Number of states to display: '), auto_upd
 		sums.append(sums[-1]+vals[-1])
 		means.append(sums[-1]/(z+2))
 		error.append(means[-1]-target)
+		#ses.append(state[k])
         
         
-
+	#print(ses)
+	#print(len(vals))
 	plt.figure()
 	plt.plot(vals, 'o',markersize=1)
 	plt.title('Sample Values')
