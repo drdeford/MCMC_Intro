@@ -69,10 +69,10 @@ disp = input_box(default = 10, label ='Number of states to display: '), auto_upd
 		vtp[z+1,:]=vtp[z,:]* N
         
 	import pylab
-	print(vtp)
-	#pylab.imshow(vtp[1:,:],cmap='jet')
-	pylab.imshow(N,cmap='jet')
-	#matrix_plot(vtp)
+	#print(vtp)
+	pylab.imshow(vtp[1:,:],cmap='jet', aspect='auto')#,origin='lower',colorbar=True, colorbar_orientation='vertical')
+	#pylab.imshow(N,cmap='jet')
+	#matrix_plot(vtp[1:,:],cmap='jet',origin='lower',colorbar=True, colorbar_orientation='vertical',figsize=8)
 	ax = plt.gca()
 	ax.set_xticks(range(len(alphabet)))
 	ax.set_xticklabels(alphabet)
