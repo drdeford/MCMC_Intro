@@ -54,7 +54,7 @@ disp = input_box(default = 10, label ='Number of states to display: '), auto_upd
 			else:
 				N[le].append(0)
                 
-                
+    N=Matrix(N)           
 	init_vec =[float(0) for x in alphabet]
 	init_vec[alpha_pos[start_word[0]]]=float(1)
     
@@ -62,7 +62,4 @@ disp = input_box(default = 10, label ='Number of states to display: '), auto_upd
 	vtp = [init_vec]
     
 	for z in range(num_steps):
-		vtp.append(Matrix(init_vec)* N)
-
-        
-        
+		vtp.append(Matrix(vtp[-1])* N)
