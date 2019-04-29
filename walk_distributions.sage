@@ -43,6 +43,7 @@ disp = input_box(default = 10, label ='Number of states to display: '), auto_upd
 			bag.append(e[0])
 			bag.append(e[1])
 		bvg = 0 
+	alpha_pos = {alphabet[x]:x for x in range(len(alphabet))}
 
 	N=[]
     
@@ -54,7 +55,7 @@ disp = input_box(default = 10, label ='Number of states to display: '), auto_upd
 			else:
 				N[le].append(0)
                 
-    N=Matrix(N)           
+	N=Matrix(N)           
 	init_vec =[float(0) for x in alphabet]
 	init_vec[alpha_pos[start_word[0]]]=float(1)
     
@@ -63,3 +64,13 @@ disp = input_box(default = 10, label ='Number of states to display: '), auto_upd
     
 	for z in range(num_steps):
 		vtp.append(Matrix(vtp[-1])* N)
+        
+	import pylab
+	pylab.imshow(N,cmap='jet')
+	#matrix_plot(M)
+	ax = plt.gca()
+	ax.set_xticks(range(len(alphabet)))
+	ax.set_xticklabels(alphabet)
+	ax.set_yticks(range(len(alphabet)))
+	ax.set_yticklabels(alphabet)  
+	plt.show()    
