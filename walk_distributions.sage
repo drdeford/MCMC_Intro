@@ -3,7 +3,7 @@ from operator import lt
 
 @interact
 def scrabble_expected(start_word = input_box(default=['a'],label = 'Initial letter: '), 
-letter_walk = selector(['Keyboard','Cycle', 'Path' ], label = 'Walk on Individual Letters: '), num_steps = input_box(default=1000,label='Number of Steps: '),
+letter_walk = selector(['Keyboard','Cycle', 'Path' ], label = 'Walk on Individual Letters: '), num_steps = input_box(default=10,label='Number of Steps: '),
 disp = input_box(default = 10, label ='Number of states to display: '), auto_update=False):
 
 	scrabble_bag = ['a','a','a','a','a','a','a','a','a','b','b','c','c','d','d','d','d','e','e','e','e','e','e','e','e','e','e','e','e','f','f','g','g','g','h','h','i','i','i','i','i','i','i','i','i','j','k','l','l','l','l','m','m','n','n','n','n','n','n','o','o','o','o','o','o','o','o','p','p','q','r','r','r','r','r','r','s','s','s','s','t','t','t','t','t','t','u','u','u','u','v','v','w','w','x','y','y','z',' ',' ']
@@ -50,27 +50,32 @@ disp = input_box(default = 10, label ='Number of states to display: '), auto_upd
 	for le in range(27):
 		N.append([])
 		for new in range(27):
-			if h.has_edge((alphabet[le],alphabet[new])): 
+			if graph.has_edge((alphabet[le],alphabet[new])): 
 				N[le].append(1/float(len(graph.neighbors(alphabet[le]))))
 			else:
-				N[le].append(0)
+				N[le].append(float(0))
                 
-	N=Matrix(N)           
+	N=Matrix(N)
+    
 	init_vec =[float(0) for x in alphabet]
 	init_vec[alpha_pos[start_word[0]]]=float(1)
     
+	vtp = matrix(RR,num_steps,27)
+	vtp[0,:] = matrix(init_vec)
     
-	vtp = [init_vec]
+	#print(vtp)
     
-	for z in range(num_steps):
-		vtp.append(Matrix(vtp[-1])* N)
+	for z in range(num_steps-1):
+		vtp[z+1,:]=vtp[z,:]* N
         
 	import pylab
+	print(vtp)
+	#pylab.imshow(vtp[1:,:],cmap='jet')
 	pylab.imshow(N,cmap='jet')
-	#matrix_plot(M)
+	#matrix_plot(vtp)
 	ax = plt.gca()
 	ax.set_xticks(range(len(alphabet)))
 	ax.set_xticklabels(alphabet)
-	ax.set_yticks(range(len(alphabet)))
-	ax.set_yticklabels(alphabet)  
+	#ax.set_yticks(range(len(alphabet)))
+	#ax.set_yticklabels(alphabet)  
 	plt.show()    
