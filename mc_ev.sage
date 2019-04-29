@@ -161,3 +161,4 @@ disp = input_box(default = 10, label ='Number of states to display: '), auto_upd
 	pretty_print('Final estimate: ', means[-1].n())
 	pretty_print('Actual expected value: ', target)
 	pretty_print('Error: ', error[-1])					
+	pretty_print('Percent Error: ', error[-1]/target)					
