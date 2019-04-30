@@ -2,6 +2,7 @@
 Friendly and interactive introduction to discrete MCMC
 
 (Under Development!)
-These Sage interact programs accompany my notes introducing discrete MCMC to non-mathematical audiences. Until I collect them all into a single webpage, you can run these programs by copying the code into my Sage cell terminal <a href="https://people.csail.mit.edu/ddeford/sage_cell.html">here</a>.
+These Sage interact programs accompany my notes introducing discrete MCMC to non-mathematical audiences. Polished versions of these are organized <a href="https://people.csail.mit.edu/ddeford/mcmc_intro.php">here</a> with some additional details. 
 
-Currently, there are functions for estimating distributions and expected values of die rolls with arbitrary faces and drawing Scrabble tiles with replacement. Word_chains implements a variety of markov chains on words with varying score functions and Word_MCMC implements MCMC on the same objects.  There is also an animation for a random walk on the keys of a computer keyboard. 
+You can run the versions here by copying the code into my Sage cell terminal <a href="https://people.csail.mit.edu/ddeford/sage_cell.html">here</a>.
+
