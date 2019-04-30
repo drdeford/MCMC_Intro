@@ -200,7 +200,7 @@ disp = input_box(default = 10, label ='Number of states to display: '), burn = i
 	#print(emp_n)
 	plt.figure()
 	plt.bar(range(len(alphabet)),proposal_vec)
-	plt.title('Proposal Distribution')
+	plt.title('Proposal Steady State Distribution')
 	ax = plt.gca()
 	ax.set_xticks(range(len(alphabet)))
 	ax.set_xticklabels(alphabet)
@@ -229,7 +229,7 @@ disp = input_box(default = 10, label ='Number of states to display: '), burn = i
 	ax = plt.gca()
 	ax.set_xticks(range(len(alphabet)))
 	ax.set_xticklabels(alphabet)
-	plt.title('Proposed Distribution')
+	plt.title('Actual Proposals Distribution')
 	plt.xlabel('Letter')
 	plt.ylabel('Frequency')
     
@@ -289,7 +289,7 @@ disp = input_box(default = 10, label ='Number of states to display: '), burn = i
     
     
 	plt.figure()
-	plt.plot(vals, 'o',markersize=2)
+	plt.plot(vals, '-o',markersize=2)
 	plt.title('Observed Values')
 	plt.xlabel('Step #')
     
