@@ -1,4 +1,5 @@
 from matplotlib import pyplot as plt
+from operator import lt
 
 @interact
 def scrabble_expected(start_word = input_box(default=['a'],label = 'Initial letter: '), 
@@ -155,7 +156,7 @@ disp = input_box(default = 10, label ='Number of states to display: '), burn = i
 
 		
 		alpha = random()
-		if alpha < q:
+		if lt(alpha, q):
 			state[k] = new_state
 			accepts.append(1)
 		else:
@@ -302,3 +303,4 @@ disp = input_box(default = 10, label ='Number of states to display: '), burn = i
 	plt.xlabel('Step #')
     
 	plt.show()
+	plt.close()
