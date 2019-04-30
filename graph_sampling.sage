@@ -19,6 +19,9 @@ letter_walk = selector(['Scrabble','Uniform','Keyboard','Cycle','Path' ], label 
 	g2=Graph(pathic)
 	g=Graph(cyclic)
 	h=Graph(key1)
+    
+	dd=h.distance_all_pairs()
+	print(h.diameter())
 	
 	
 	
