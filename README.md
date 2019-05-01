@@ -1,4 +1,4 @@
-# A Friendly and interactive introduction to discrete MCMC (with Scrabble)
+# A friendly and interactive introduction to discrete MCMC
 (Under Development!)
 
 These Sage interact widgets accompany my notes introducing discrete MCMC to non-mathematical audiences using Scrabble. Polished and embedded versions of these are organized <a href="https://people.csail.mit.edu/ddeford/mcmc_intro.php">on my academic webpage</a> with some additional details. 
