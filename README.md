@@ -1,6 +1,6 @@
 # A friendly and interactive introduction to discrete MCMC
 
-This repo contains the source code for the Sage interact widgets that accompany my notes introducing discrete MCMC to non-mathematical audiences using Scrabble. Polished and embedded versions of these are organized <a href="https://people.csail.mit.edu/ddeford/mcmc_intro.php">on my academic webpage</a> with some additional details. 
+This repo contains the source code for the Sage interact widgets that accompany <a href="https://people.csail.mit.edu/ddeford/MCMC_Intro.pdf">my notes<a/> introducing discrete MCMC to non-mathematical audiences using Scrabble. Polished and embedded versions of these are organized <a href="https://people.csail.mit.edu/ddeford/mcmc_intro.php">on my academic webpage</a> with some additional details. 
 
 Here is a fun animation of a Markov chain on the letters of the alphabet, formed by moving between adjacent keys on a standard QWERTY keyboard:
 
