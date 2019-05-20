@@ -176,3 +176,19 @@ show the theoretical proposal and score steady state distributions as well as th
 between the empirical and theoretical distributions is also plotted along with the convergence of the expected value under the score distribution. Finally, the traces and accepted states are
 reported.  </li> </ul> </li>
 </ul>
+
+<h2>Lifted Markov Chains</h2>
+
+One approach for forming faster mixing Markov chains is the idea of a "lifted" walk, where we make use of an auxiliary graph that has a known rapidly mixing chain.  The key idea is that in well-behaved graphs
+(e.g. those with lots of symmetry) we can construct faster mixing chains by lifting to a larger 
+graph with even nicer properties. Although this is unintuitive at first glance, as we are moving
+to a setting with more nodes to try to get more rapid mixing, this example demonstrates the main properties that make this procedure work. 
+<ul>
+<li><a href="lifted_walks.html">Lifted Walks</a></li>
+<ul> 
+<li>This interactive explores <b>Example 1.1</b> presented in the paper 
+<a href="http://www.math.ucla.edu/~pak/papers/stoc2.pdf">Lifting Markov Chains to Speed up Mixing
+ </a> by Chen, Lovasz, and Pak. The original walk here is on the path graph with n vertices, which is then lifted to the cycle graph on 2n-2 vertices. You can select
+the size of the path and how many steps to evaluate and then the simple walk is compared to the lifted one. More theoretical details are provided on the linked page.  </li>
+</ul>
+</ul>
