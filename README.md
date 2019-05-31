@@ -1,6 +1,6 @@
 # A friendly and interactive introduction to discrete MCMC
 
-This repo contains the source code for the Sage interact widgets that accompany <a href="https://people.csail.mit.edu/ddeford/MCMC_Intro.pdf">my notes<a/> introducing discrete MCMC to non-mathematical audiences using Scrabble. Polished and embedded versions of these are organized <a href="https://people.csail.mit.edu/ddeford/mcmc_intro.php">on my academic webpage</a> with some additional details. 
+This repo contains the source code for the Sage interact widgets that accompany <a href="https://people.csail.mit.edu/ddeford/MCMC_Intro_plus.pdf">my notes<a/> introducing discrete MCMC to non-mathematical audiences using Scrabble. Polished and embedded versions of these are organized <a href="https://people.csail.mit.edu/ddeford/mcmc_intro.php">on my academic webpage</a> with some additional details. 
 
 Here is a fun animation of a Markov chain on the letters of the alphabet, formed by moving between adjacent keys on a standard QWERTY keyboard:
 
@@ -191,3 +191,31 @@ to a setting with more nodes to try to get more rapid mixing, this example demon
 the size of the path and how many steps to evaluate and then the simple walk is compared to the lifted one. More theoretical details are provided on the linked page.  </li>
 </ul>
 </ul>
+
+<h2>MCMC for Redistricting</h2>
+
+The last section of the notes focuses on applying MCMC methods to the problem of sampling 
+legislative districting plans. This requires both an additional layer of abstraction, as the states
+in our Markov chain are now partitions of graphs instead of individual nodes, as well as more
+concrete engagement with the real-world data and laws that govern the process. We see how all 
+of the concepts introduced in the previous sections - defining the state space, picking a proposal method, 
+computing the acceptance function, etc. - have to be modified to work in this applied setting. 
+The section concludes with a discussion of annealing and partitions of grids. 
+
+<ul>
+<li> <a href="https://github.com/mggg/gerrychain"> GerryChain</a></li>
+<ul>
+<li> The ideas presented in this section are implemented in the section are implemented in the GerryChain
+softare package, developed by VRDI and MGGG. </li>
+<li> This <a href="people.csail.mit.edu/ddeford/GerryChain_Guide.pdf">guide</a> covers the inner workings of the software
+and supplements the material presented on this page with a computational perspective.  </li>
+</ul>
+
+<li><a href="people.csail.mit.edu/ddeford/CAPR.php">Computational Approaches for Political Redistricting</a> </li>
+
+<ul><li>  In January 2019 I developed an IAP course on computational redistricting at MIT.
+ The course webpage has many more links to software tools and guides for exploring this
+exciting project.  </ul>
+
+</ul>
+
