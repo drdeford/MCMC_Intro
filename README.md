@@ -176,6 +176,17 @@ between the empirical and theoretical distributions is also plotted along with t
 reported.  </li> </ul> </li>
 </ul>
 
+
+<h2>Mixing Times</h2>
+Although much of the literature on mixing times requires mathematical tools that are beyond the scope of this introduction, this section provides some intuition for how the properties
+of the chain and Metropolis-Hastings waiting process can impact the convergence rate. 
+<ul> 
+<li> <a href="mcmc_lmixing.html">Mixing Comparison</a>
+<ul><li> This visualization shows how the distribution over states evolves as various MCMC chains progress. You select the proposal distribution and MCMC score function as well as an initial distribution over the states. The initial
+distribution can either be uniform over the letters, a random probability vector, or a pure state with all of the mass concentrated on a single letter.  The output shows a heatmap of the probabilities
+of being in a particular state over time and compares the total variation distance between the target distribution and the distribution after k steps from the given starting point.  </li> </ul> </li>
+</ul>
+
 <h2>Lifted Markov Chains</h2>
 
 One approach for forming faster mixing Markov chains is the idea of a "lifted" walk, where we make use of an auxiliary graph that has a known rapidly mixing chain.  The key idea is that in well-behaved graphs
