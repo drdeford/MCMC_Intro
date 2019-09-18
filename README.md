@@ -222,7 +222,7 @@ softare package, developed by VRDI and MGGG. </li>
 and supplements the material presented on this page with a computational perspective.  </li>
 </ul>
 
-<li><a href="people.csail.mit.edu/ddeford/CAPR.php">Computational Approaches for Political Redistricting</a> </li>
+<li><a href="https://people.csail.mit.edu/ddeford/CAPR.php">Computational Approaches for Political Redistricting</a> </li>
 
 <ul><li>  In January 2019 I developed an IAP course on computational redistricting at MIT.
  The course webpage has many more links to software tools and guides for exploring this
